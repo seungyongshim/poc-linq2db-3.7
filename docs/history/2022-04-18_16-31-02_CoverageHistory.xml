@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2022-04-18_16-31-02" tag="3_2184864500">
+  <assembly name="Sample">
+    <class name="Sample.DbSample" coveredlines="9" coverablelines="9" totallines="24" coveredbranches="0" totalbranches="0" coveredcodeelements="2" totalcodeelements="2" />
+    <class name="Sample.Domain.EventSendResult" coveredlines="0" coverablelines="3" totallines="11" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="3" />
+    <class name="Sample.Domain.TraceId" coveredlines="0" coverablelines="1" totallines="3" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="1" />
+    <class name="Sample.Dto.History" coveredlines="0" coverablelines="4" totallines="15" coveredbranches="0" totalbranches="0" coveredcodeelements="0" totalcodeelements="4" />
+  </assembly>
+</coverage>
