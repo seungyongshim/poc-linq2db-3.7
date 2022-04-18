@@ -1,14 +1,19 @@
 version: '2.1'
 
 services:
-  mssql:
-    image: mssql
-    build:
-      context: ./mssql
-      dockerfile: DockerFile
-    hostname: mssql
-    ports:
-      - "1433:1433"
+  db:
+    image: mysql
+    command: "--default-authentication-plugin=mysql_native_password --init-file /script/init.sql"
+    restart: always
     environment:
-      ACCEPT_EULA: "Y"
-      SA_PASSWORD: q1w2e3r4t5Y^U&I*O(P)  
+      MYSQL_ROOT_PASSWORD: root  
+    volumes:
+      - ./init.sql:/script/init.sql
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9000:8080  
