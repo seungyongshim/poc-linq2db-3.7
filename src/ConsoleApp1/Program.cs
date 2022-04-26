@@ -26,7 +26,7 @@ await db.History.InsertWithInt64IdentityAsync(() => new History
 
 var q = from x in db.History
         where x.Id == 6
-        select x;
+        select new EventSendResult(x.DateTime, x.EventType, new(x.TraceId));
 
 foreach (var x in q)
 {

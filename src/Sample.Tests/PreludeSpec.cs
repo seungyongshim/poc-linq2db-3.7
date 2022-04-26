@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using LinqToDB;
+using LinqToDB.Data;
 using MySql.Data.MySqlClient;
 using Sample.Domain;
 using Sample.Dto;
@@ -12,6 +13,12 @@ namespace Sample.Tests;
 
 public class PreludeSpec
 {
+    public PreludeSpec()
+    {
+        DataConnection.TurnTraceSwitchOn();
+        DataConnection.WriteTraceLine = (m, d, l) => Debug.WriteLine($"[{l}] {m} {d}");
+    }
+
     [Fact]
     public async Task AddSuccess()
     {
@@ -35,7 +42,7 @@ public class PreludeSpec
 
         var q = from x in db.History
                 where x.Id == 6
-                select x;
+                select new EventSendResult(x.DateTime, x.EventType, new(x.TraceId));
 
         foreach(var x in q)
         {
