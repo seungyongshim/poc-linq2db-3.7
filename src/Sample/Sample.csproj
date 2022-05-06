@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="linq2db.MySql" Version="4.0.0-preview.9-fixed" />
+    <PackageReference Include="linq2db.MySql" Version="4.0.0-rc.1" />
   </ItemGroup>
 
 </Project>
